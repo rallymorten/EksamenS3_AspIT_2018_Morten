@@ -1,0 +1,280 @@
+﻿<UserControl x:Class="GUI.UserControls.UCGrainSupplier"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+             xmlns:local="clr-namespace:GUI.UserControls"
+             mc:Ignorable="d"
+             d:DesignHeight="560"
+             d:DesignWidth="800">
+    <Grid x:Name="MainGrid" Background="White" Height="560" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="lvSuppliers"
+                  HorizontalAlignment="Stretch"
+                  Margin="10,45,10,10"
+                  VerticalAlignment="Stretch"
+                  ItemsSource="{Binding suppliers}" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Grain Supplier"
+                                    Width="250" 
+                                    DisplayMemberBinding="{Binding businessName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <GroupBox Header="Grain Supplier"
+                  HorizontalAlignment="Left"
+                  Height="231"
+                  Margin="296,35,0,0"
+                  VerticalAlignment="Top"
+                  Width="494"
+                  Grid.ColumnSpan="2">
+            <Grid HorizontalAlignment="Stretch"
+                  Margin="0,0,0,0"
+                  VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Label Content="Name:"
+                       HorizontalAlignment="Left"
+                       Height="29"
+                       Margin="10,3,0,0"
+                       VerticalAlignment="Top"
+                       Width="111"
+                       Grid.Column="0"
+                       Grid.Row="0" />
+                <Label Content="Address:"
+                       HorizontalAlignment="Left"
+                       Height="29"
+                       Margin="10,3,0,0"
+                       VerticalAlignment="Top"
+                       Width="111"
+                       Grid.Column="0"
+                       Grid.Row="1" />
+                <Label Content="Zip - City:"
+                       HorizontalAlignment="Left"
+                       Height="29"
+                       Margin="10,3,0,0"
+                       VerticalAlignment="Top"
+                       Width="111"
+                       Grid.Column="0"
+                       Grid.Row="2" />
+                <Label Content="Country:"
+                       HorizontalAlignment="Left"
+                       Height="29"
+                       Margin="10,3,0,0"
+                       VerticalAlignment="Top"
+                       Width="111"
+                       Grid.Column="0"
+                       Grid.Row="3" />
+                <Label Content="Phone no.:"
+                       HorizontalAlignment="Left"
+                       Height="29"
+                       Margin="10,3,0,0"
+                       VerticalAlignment="Top"
+                       Width="111"
+                       Grid.Column="0"
+                       Grid.Row="4" />
+                <Label Content="Mail Adress:"
+                       HorizontalAlignment="Left"
+                       Height="29"
+                       Margin="10,3,0,0"
+                       VerticalAlignment="Top"
+                       Width="111"
+                       Grid.Column="0"
+                       Grid.Row="5" />
+                <TextBox x:Name="tbsupplierName"
+                         HorizontalAlignment="Stretch"
+                         Margin="10,6,10,6"
+                         TextWrapping="Wrap"
+                         Text="{Binding CS.businessName}"
+                         IsReadOnly="True"
+                         VerticalAlignment="Stretch"
+                         Grid.Column="1"
+                         Grid.Row="0" />
+                <TextBox x:Name="tbsupplierAddress"
+                         HorizontalAlignment="Stretch"
+                         Margin="10,6,10,6"
+                         TextWrapping="Wrap"
+                         Text="{Binding CS.address}"
+                         IsReadOnly="True"
+                         VerticalAlignment="Stretch"
+                         Grid.Column="1"
+                         Grid.Row="1" />
+                <TextBox x:Name="tbsupplierZipAndCity"
+                         HorizontalAlignment="Stretch"
+                         Margin="10,6,10,6"
+                         TextWrapping="Wrap"
+                         Text="{Binding CS.zipAndCity}"
+                         IsReadOnly="True"
+                         VerticalAlignment="Stretch"
+                         Grid.Column="1"
+                         Grid.Row="2" />
+                <TextBox x:Name="tbsupplierCountry"
+                         HorizontalAlignment="Stretch"
+                         Margin="10,6,10,6"
+                         TextWrapping="Wrap"
+                         Text="{Binding CS.country}"
+                         IsReadOnly="True"
+                         VerticalAlignment="Stretch"
+                         Grid.Column="1"
+                         Grid.Row="3" />
+                <TextBox x:Name="tbsupplierPhone"
+                         HorizontalAlignment="Stretch"
+                         Margin="10,6,10,6"
+                         TextWrapping="Wrap"
+                         Text="{Binding CS.phone}"
+                         IsReadOnly="True"
+                         VerticalAlignment="Stretch"
+                         Grid.Column="1"
+                         Grid.Row="4" />
+                <TextBox x:Name="tbsupplierMail"
+                         HorizontalAlignment="Stretch"
+                         Margin="10,6,10,6"
+                         TextWrapping="Wrap"
+                         Text="{Binding CS.mail}"
+                         IsReadOnly="True"
+                         VerticalAlignment="Stretch"
+                         Grid.Column="1"
+                         Grid.Row="5" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Supplier Sales Assistant"
+                  HorizontalAlignment="Left"
+                  Height="168"
+                  Margin="296,271,0,0"
+                  VerticalAlignment="Top"
+                  Width="494"
+                  Grid.ColumnSpan="2">
+            <Grid HorizontalAlignment="Stretch"
+                  Margin="0,0,0,0"
+                  VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2.7*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Label Content="Name:"
+                       HorizontalAlignment="Left"
+                       Height="29"
+                       Margin="10,3,0,0"
+                       VerticalAlignment="Top"
+                       Width="111"
+                       Grid.Column="0"
+                       Grid.Row="0" />
+                <Label Content="Direct Phone:"
+                       HorizontalAlignment="Left"
+                       Height="29"
+                       Margin="10,3,0,0"
+                       VerticalAlignment="Top"
+                       Width="111"
+                       Grid.Column="0"
+                       Grid.Row="1" />
+                <Label Content="Mobile Phone:"
+                       HorizontalAlignment="Left"
+                       Height="29"
+                       Margin="10,3,0,0"
+                       VerticalAlignment="Top"
+                       Width="111"
+                       Grid.Column="0"
+                       Grid.Row="2" />
+                <Label Content="Direct Mail Adress:"
+                       HorizontalAlignment="Left"
+                       Height="29"
+                       Margin="10,3,0,0"
+                       VerticalAlignment="Top"
+                       Width="111"
+                       Grid.Column="0"
+                       Grid.Row="3" />
+                <TextBox x:Name="tbSAName"
+                         HorizontalAlignment="Stretch"
+                         Margin="10,6,10,6"
+                         TextWrapping="Wrap"
+                         Text="{Binding CSA.saName}"
+                         IsReadOnly="True"
+                         VerticalAlignment="Stretch"
+                         Grid.Column="1"
+                         Grid.Row="0" />
+                <TextBox x:Name="tbSADPhone"
+                         HorizontalAlignment="Stretch"
+                         Margin="10,6,10,6"
+                         TextWrapping="Wrap"
+                         Text="{Binding CSA.saDirectPhone}"
+                         IsReadOnly="True"
+                         VerticalAlignment="Stretch"
+                         Grid.Column="1"
+                         Grid.Row="1" />
+                <TextBox x:Name="tbSAPhone"
+                         HorizontalAlignment="Stretch"
+                         Margin="10,6,10,6"
+                         TextWrapping="Wrap"
+                         Text="{Binding CSA.saPhone}"
+                         IsReadOnly="True"
+                         VerticalAlignment="Stretch"
+                         Grid.Column="1"
+                         Grid.Row="2" />
+                <TextBox x:Name="tbSADMail"
+                         HorizontalAlignment="Stretch"
+                         Margin="10,6,10,6"
+                         TextWrapping="Wrap"
+                         Text="{Binding CSA.saDirectMail}"
+                         IsReadOnly="True"
+                         VerticalAlignment="Stretch"
+                         Grid.Column="1"
+                         Grid.Row="3" />
+            </Grid>
+        </GroupBox>
+        <Button x:Name="buttonChoose"
+                Content="Choose Supplier"
+                HorizontalAlignment="Left"
+                Height="49"
+                Margin="220,444,0,0"
+                VerticalAlignment="Top"
+                Width="247"
+                Grid.Column="1" Click="buttonChoose_Click"/>
+        <Button x:Name="buttonEdit"
+                Content="{Binding buttonEditContext}"
+                Tag="{Binding buttonEditState}"
+                HorizontalAlignment="Left"
+                Margin="30,494,0,42"
+                Width="159"
+                Grid.Column="1" Click="buttonEdit_Click" />
+        <Button x:Name="buttonNew"
+                Content="{Binding buttonNewContext}"
+                Tag="{Binding buttonNewState}"
+                HorizontalAlignment="Left"
+                Height="25"
+                Margin="30,524,0,0"
+                VerticalAlignment="Top"
+                Width="159"
+                Grid.Column="1" Click="ButtonCreateNew"/>
+        <Label Content="Search:"
+               HorizontalAlignment="Stretch"
+               Margin="10,10,225,520"
+               VerticalAlignment="Stretch" />
+        <TextBox HorizontalAlignment="Stretch"
+                 Margin="60,14,10,526"
+                 TextWrapping="Wrap"
+                 Text="{Binding search, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Stretch" />
+    </Grid>
+</UserControl>
